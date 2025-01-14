@@ -33,12 +33,6 @@
         #red{
             color: red;
         }
-        .circle{
-            width: 150px;
-            height: 150px;
-            border-radius: 100px;
-            background-image: url("assets/image/img_2.png");
-        }
     </style>
 </head>
 <body>

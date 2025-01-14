@@ -59,28 +59,26 @@ public class UserSaveServlet extends HttpServlet {
 //    }
 
 
-
-
     @Resource(name = "java:comp/env/jdbc/pool")
     private DataSource dataSource;
 //
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try (Connection connection = dataSource.getConnection()) {
-            JsonReader jsonReader = Json.createReader(req.getReader());
-            JsonObject jsonObject = jsonReader.readObject();
+//            JsonReader jsonReader = Json.createReader(req.getReader());
+//            JsonObject jsonObject = jsonReader.readObject();
+//
+//            if (!jsonObject.containsKey("user_name") || !jsonObject.containsKey("user_email") ||
+//                    !jsonObject.containsKey("user_password") || !jsonObject.containsKey("user_role")) {
+//                resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+//                sendErrorResponse(resp, "Invalid input data.");
+//                return;
+//            }
 
-            if (!jsonObject.containsKey("user_name") || !jsonObject.containsKey("user_email") ||
-                    !jsonObject.containsKey("user_password") || !jsonObject.containsKey("user_role")) {
-                resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-                sendErrorResponse(resp, "Invalid input data.");
-                return;
-            }
-
-            String username = jsonObject.getString("user_name");
-            String email = jsonObject.getString("user_email");
-            String password = jsonObject.getString("user_password");
-            String role = jsonObject.getString("user_role");
+            String username = req. getParameter ("user_name");
+            String email = req. getParameter ("user_email");
+            String password = req. getParameter ("user_password") ;
+            String role = req. getParameter ("user_role");
 
 
             String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
@@ -93,21 +91,28 @@ public class UserSaveServlet extends HttpServlet {
                 pst.setString(4, role);
 
                 int affectedRows = pst.executeUpdate();
-                resp.setContentType("application/json");
-                resp.setStatus(HttpServletResponse.SC_CREATED);
+//                resp.setContentType("application/json");
+//                resp.setStatus(HttpServletResponse.SC_CREATED);
+//
+//                JsonObjectBuilder responseBuilder = Json.createObjectBuilder();
+//                responseBuilder.add("status", "success");
+//                responseBuilder.add("message", "User saved successfully.");
+//                resp.getWriter().write(responseBuilder.build().toString());
 
-                JsonObjectBuilder responseBuilder = Json.createObjectBuilder();
-                responseBuilder.add("status", "success");
-                responseBuilder.add("message", "User saved successfully.");
-                resp.getWriter().write(responseBuilder.build().toString());
-            } catch (SQLException e) {
+                if (affectedRows > 0) {
+                    resp.sendRedirect("user-save.jsp?message= User Saved Successfully!");
+                }else {
+                    resp.sendRedirect("user-save.jsp?error= User Save Failed!");
+                }
+            } catch (Exception e) {
                 e.printStackTrace();
-                sendErrorResponse(resp, "Database error: " + e.getMessage());
+//                sendErrorResponse(resp, "Database error: " + e.getMessage());
+                resp.sendRedirect("user-save.jsp?message= User Save Failed!");
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            sendErrorResponse(resp, "Failed to establish database connection.");
+//            resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+//            sendErrorResponse(resp, "Failed to establish database connection.");
         }
     }
 
