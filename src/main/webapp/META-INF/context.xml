@@ -2,12 +2,13 @@
 <Context path="/">
     <Resource
             name="jdbc/pool"
+            auth="Container"
             type="javax.sql.DataSource"
             driverClassName="com.mysql.cj.jdbc.Driver"
             url="jdbc:mysql://localhost:3306/ecommerce"
             username="root"
             password="1234"
-            maxTotal="5"
+            maxTotal="20"
             initialSize="5"
     >
     </Resource>

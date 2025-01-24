@@ -6,72 +6,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liberty</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         .navbar {
-            background-color: #f8f9fa;
+            background-color: #c9c9c9;
         }
 
         .navbar-brand {
             font-weight: bold;
             font-size: 1.5rem;
+            color: white !important;
         }
 
-        .navbar-center {
-            flex-grow: 1;
-            display: flex;
-            justify-content: center;
+        #red {
+            color: red;
         }
 
-        .navbar-right {
+        .nav-link {
+            color: white !important;
+            position: relative;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: black !important;
+        }
+
+        .nav-link:hover::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: red;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+        }
+
+        .btn-search {
+            color: black;
+            background-color: transparent;
+            border: none;
             display: flex;
             align-items: center;
+            font-size: 1.1rem;
+            position: relative;
         }
 
-        .navbar-right img {
-            max-height: 40px;
+        .btn-search i {
+            margin-left: 5px;
+            font-size: 1.2rem;
         }
-        #red{
+
+        .btn-search:hover {
             color: red;
+        }
+
+        .btn-search:hover::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            position: absolute;
+            bottom: -3px;
+            left: 0;
         }
     </style>
 </head>
 <body>
 <%--Nav Bar--%>
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-        <!-- Liberty Text on the Left -->
         <a class="navbar-brand" href="#">Lib<span id="red">er</span>ty</a>
-
-        <!-- Navbar Toggler -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
-        <!-- Collapsible Navbar Content -->
-        <div class="collapse navbar-collapse" id="navbarContent">
-            <!-- Search Bar Centered -->
-            <div class="navbar-center">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-
-            <!-- Logo on the Right -->
-            <div class="navbar-right">
-                <a href="system-login.jsp">
-                    <img src="assets/icons/img.png">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="admin-categories.jsp">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="user-product.jsp">Product</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Cart</a>
+                </li>
+            </ul>
+            <div class="d-flex align-items-center">
+                <!-- Search Button -->
+                <a class="btn btn-search" href="user-search.jsp"><i class="bi bi-search"></i>
                 </a>
             </div>
         </div>
     </div>
 </nav>
-
-<!-- Links -->
-<div class="container mt-3">
-    <a href="user-save.jsp">Register</a><br>
-    <a href="system-login.jsp">Login</a><br>
-</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
