@@ -72,17 +72,17 @@
     <div class="col-12 col-md-6 login-form">
         <h2 class="text-center">Welcome Back!</h2>
         <p class="text-center text-muted mb-4">Login to continue to your account</p>
-        <form>
+        <form action="user-loginpage" method="get">
             <!-- Email Field -->
             <div class="mb-3">
                 <label for="email" class="form-label">Email Address :</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                <input type="email" class="form-control" id="email" name="user_email" placeholder="Enter your email" required>
             </div>
 
             <!-- Password Field -->
             <div class="mb-3">
                 <label for="password" class="form-label">Password :</label>
-                <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                <input type="password" class="form-control" id="password" name="user_password" placeholder="Enter your password" required>
             </div>
 
             <!-- Login Button -->

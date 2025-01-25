@@ -5,48 +5,7 @@
 <head>
   <title>Product Success</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    .card {
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: scale(1.05);
-    }
-
-    .card img {
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .btn-add-to-cart {
-      background-color: #b0b0b0; /* Ash color */
-      color: #000;
-      border: none;
-      transition: all 0.3s ease;
-    }
-
-    .btn-add-to-cart:hover {
-      background-color: #000; /* Black color */
-      color: #fff;
-    }
-
-    /* Buy Now button styles */
-    .btn-buy-now {
-      background-color: #000; /* Black color */
-      color: #fff;
-      border: none;
-      transition: all 0.3s ease;
-    }
-
-    .btn-buy-now:hover {
-      background-color: #de4c4c; /* Ash color */
-      color: white;
-    }
-    #red{
-      color: red;
-    }
-  </style>
+  <link href="assets/styles/user-product.css" rel="stylesheet">
 </head>
 <body>
 <div class="container mt-5">

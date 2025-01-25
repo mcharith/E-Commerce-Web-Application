@@ -1,0 +1,46 @@
+body {
+    background: linear-gradient(45deg, rgb(241, 86, 86), rgba(255, 255, 255, 0.8)), url('https://via.placeholder.com/1920x600?text=Shop+Our+Latest+Products');
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.card {
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.btn-add-to-cart {
+    background-color: #b0b0b0; /* Ash color */
+    color: #000;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-add-to-cart:hover {
+    background-color: #000; /* Black color */
+    color: #fff;
+}
+
+/* Buy Now button styles */
+.btn-buy-now {
+    background-color: #000; /* Black color */
+    color: #fff;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-buy-now:hover {
+    background-color: #de4c4c; /* Ash color */
+    color: white;
+}
+#red{
+    color: red;
+}
