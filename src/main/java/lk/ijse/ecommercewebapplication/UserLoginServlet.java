@@ -37,12 +37,13 @@ public class UserLoginServlet extends HttpServlet {
             ResultSet resultSet = ps.executeQuery();
             if (resultSet.next()) {
                 String dbPassword = resultSet.getString("password");
+
                 if (BCrypt.checkpw(password, dbPassword)) {
-                    // Store user info in session
-                    req.getSession().setAttribute("user", resultSet.getString("username")); // Assume "name" is a column in the "users" table
+                    // Set userId and username in session
+                    req.getSession().setAttribute("userId", resultSet.getInt("id"));
+                    req.getSession().setAttribute("user", resultSet.getString("username"));
                     req.getSession().setAttribute("email", email);
 
-                    // Redirect to user detail page
                     resp.sendRedirect("index.jsp");
                 } else {
                     resp.sendRedirect("user-loginpage.jsp?error=Invalid email or password");

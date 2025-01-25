@@ -1,4 +1,4 @@
-<%--
+<%@ page import="java.util.Map" %><%--
   Created by IntelliJ IDEA.
   User: charithsiriwardana
   Date: 2025-01-24
@@ -34,6 +34,7 @@
 </head>
 <body>
 <div class="container my-4">
+    <h5>Welcome, <%= session.getAttribute("user") %>!</h5>
     <h1 class="text-center">Shopping Cart</h1>
     <div class="row">
         <div class="col-md-12">
@@ -50,34 +51,49 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <!-- Example Cart Item -->
+                    <%
+                        Map<Integer, Map<String, Object>> cart = (Map<Integer, Map<String, Object>>) session.getAttribute("cart");
+                        double total = 0.0;
+
+                        if (cart != null && !cart.isEmpty()) {
+                            for (Map.Entry<Integer, Map<String, Object>> entry : cart.entrySet()) {
+                                int productId = entry.getKey();
+                                Map<String, Object> productDetails = entry.getValue();
+                                String productName = (String) productDetails.get("name");
+                                double productPrice = (double) productDetails.get("price");
+                                int quantity = (int) productDetails.get("quantity");
+                                double subtotal = productPrice * quantity;
+                                total += subtotal;
+                    %>
                     <tr class="cart-item">
-                        <td>Product Name 1</td>
-                        <td>$10.00</td>
+                        <td><%= productName %></td>
+                        <td>$<%= String.format("%.2f", productPrice) %></td>
                         <td>
-                            <input type="number" class="form-control w-50" value="1" min="1">
+                            <input type="number" class="form-control w-50" value="<%= quantity %>" min="1" disabled>
                         </td>
-                        <td>$10.00</td>
+                        <td>$<%= String.format("%.2f", subtotal) %></td>
                         <td>
-                            <button class="btn btn-danger btn-sm">Remove</button>
+                            <form action="remove-from-cart" method="post">
+                                <input type="hidden" name="productId" value="<%= productId %>">
+                                <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                            </form>
                         </td>
                     </tr>
-                    <tr class="cart-item">
-                        <td>Product Name 2</td>
-                        <td>$20.00</td>
-                        <td>
-                            <input type="number" class="form-control w-50" value="2" min="1">
-                        </td>
-                        <td>$40.00</td>
-                        <td>
-                            <button class="btn btn-danger btn-sm">Remove</button>
-                        </td>
+                    <%
+                        }
+                    } else {
+                    %>
+                    <tr>
+                        <td colspan="5" class="text-center">Your cart is empty.</td>
                     </tr>
+                    <%
+                        }
+                    %>
                     </tbody>
                     <tfoot>
                     <tr class="cart-footer">
                         <td colspan="3">Total</td>
-                        <td>$50.00</td>
+                        <td>$<%= String.format("%.2f", total) %></td>
                         <td>
                             <button class="btn btn-success">Checkout</button>
                         </td>

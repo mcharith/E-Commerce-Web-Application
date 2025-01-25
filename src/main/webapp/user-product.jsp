@@ -34,7 +34,12 @@
         <div class="card-body text-center">
           <h5 class="card-title"><%= name %></h5>
           <p class="card-text">Price: $<%= String.format("%.2f", price) %></p>
-          <button class="btn btn-add-to-cart w-100 mb-2">Add to Cart</button>
+          <form action="add-to-cart" method="post">
+            <input type="hidden" name="productId" value="<%= id %>">
+            <input type="hidden" name="productName" value="<%= name %>">
+            <input type="hidden" name="productPrice" value="<%= price %>">
+            <button type="submit" class="btn btn-add-to-cart w-100 mb-2">Add to Cart</button>
+          </form>
           <button class="btn btn-buy-now w-100">Buy Now</button>
         </div>
       </div>
