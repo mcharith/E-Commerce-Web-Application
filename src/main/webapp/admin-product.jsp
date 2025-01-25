@@ -60,8 +60,10 @@
       <label for="categoryId" class="form-label">Category ID</label>
       <input type="number" id="categoryId" class="form-control" placeholder="Enter category ID" name="categoryId" required>
     </div>
-    <button type="submit" class="btn btn-outline-secondary w-100" name="action" value="add">Add Product</button>
-    <button type="submit" class="btn btn-outline-danger w-100" name="action" value="delete">Update Product</button>
+    <div class="d-flex justify-content-between">
+      <button type="submit" class="btn btn-outline-secondary w-50 me-2" name="action" value="add">Add Product</button>
+      <button type="submit" class="btn btn-outline-danger w-50" name="action" value="update">Update Product</button>
+    </div>
   </form>
 </div>
 

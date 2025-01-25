@@ -26,11 +26,11 @@ public class AdminProductServlet extends HttpServlet {
         String action = req.getParameter("action");
 
         if ("add".equals(action)) {
-            // Handle adding a product
             addProduct(req, resp);
         } else if ("delete".equals(action)) {
-            // Handle deleting a product
             deleteProduct(req, resp);
+        } else if ("update".equals(action)) {
+            updateProduct(req, resp);
         }
     }
 
@@ -85,6 +85,56 @@ public class AdminProductServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
             resp.sendRedirect("admin-product.jsp?error=Failed to delete product");
+        }
+    }
+
+    private void updateProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String productId = req.getParameter("productId");
+        String name = req.getParameter("name");
+        double price = Double.parseDouble(req.getParameter("price"));
+        int quantity = Integer.parseInt(req.getParameter("quantity"));
+        int categoryId = Integer.parseInt(req.getParameter("categoryId"));
+        Part filePart = req.getPart("description");
+
+        if (productId == null || productId.isEmpty()) {
+            resp.sendRedirect("admin-product.jsp?error=Product ID is required to update");
+            return;
+        }
+
+        try (Connection connection = dataSource.getConnection()) {
+            // SQL query with file part as optional
+            String sql = filePart != null && filePart.getSize() > 0
+                    ? "UPDATE products SET name = ?, description = ?, price = ?, quantity = ?, category_id = ? WHERE id = ?"
+                    : "UPDATE products SET name = ?, price = ?, quantity = ?, category_id = ? WHERE id = ?";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setString(1, name);
+
+                if (filePart != null && filePart.getSize() > 0) {
+                    InputStream inputStream = filePart.getInputStream();
+                    ps.setBlob(2, inputStream);
+                    ps.setDouble(3, price);
+                    ps.setInt(4, quantity);
+                    ps.setInt(5, categoryId);
+                    ps.setInt(6, Integer.parseInt(productId));
+                } else {
+                    ps.setDouble(2, price);
+                    ps.setInt(3, quantity);
+                    ps.setInt(4, categoryId);
+                    ps.setInt(5, Integer.parseInt(productId));
+                }
+
+                int rowsAffected = ps.executeUpdate();
+
+                if (rowsAffected > 0) {
+                    resp.sendRedirect("admin-product.jsp?message=Product updated successfully");
+                } else {
+                    resp.sendRedirect("admin-product.jsp?error=Failed to update product");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            resp.sendRedirect("admin-product.jsp?error=Failed to update product");
         }
     }
 }
