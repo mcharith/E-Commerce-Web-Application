@@ -6,7 +6,7 @@ This application is designed to provide a seamless user experience by combining 
 ![image alt](https://github.com/mcharith/E-Commerce-Web-Application/blob/82c9efa37018a3fa0bfd1f604bb58eab42ef5a8e/admin-homepage.png)
 
 *Admin Category Add Page.
-![image alt]
+![image alt](https://github.com/mcharith/E-Commerce-Web-Application/blob/ca5f9b101f289e9701f30aaea100dd4f52f9aaae/admin-category.png)
 
 *Admin Product Add Page.
 ![image alt]
