@@ -188,14 +188,20 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
+                    <a class="nav-link active" id="user_home_nav" href="#">Home</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link active" id="user_product_nav" href="user-product.jsp">Products</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" id="user_cart_nav" href="user-cart.jsp">Cart</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active" id="user_news_nav" href="#">News</a>
+                </li>
             </ul>
             <div class="d-flex align-items-center">
-                <a class="btn btn-search" id="user_search_nav" href="#"><i class="bi bi-search"></i></a>
+                <a class="btn btn-search" id="user_search_nav" href="user-search.jsp"><i class="bi bi-search"></i></a>
             </div>
 
             <%-- Check if the user is logged in --%>
@@ -248,6 +254,7 @@
     </div>
     <!-- Add more products as needed -->
 </div>
+
 
 <!-- Footer Section -->
 <div class="footer">
