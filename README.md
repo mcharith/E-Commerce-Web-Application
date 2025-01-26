@@ -38,7 +38,7 @@ This application is designed to provide a seamless user experience by combining 
 ![image alt](https://github.com/mcharith/E-Commerce-Web-Application/blob/d0e9de182503cf43bd64e30a2d60888773640eec/customer-product-search.png)
 
 ⭕️ Customer Login Page
-![image alt]()
+![image alt](https://github.com/mcharith/E-Commerce-Web-Application/blob/6a6c13c7634c73982c8c177357c0d0453793dccd/customer-login.png)
 
 ⭕️ Customer Personal detail update Page
 ![image alt](https://github.com/mcharith/E-Commerce-Web-Application/blob/5a6c671a7c7441d8d97bfde50fd65a936cc62c5d/customer-personal-detail-update.png)
