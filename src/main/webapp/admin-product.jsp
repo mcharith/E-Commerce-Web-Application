@@ -155,28 +155,24 @@
         const categoryId = row.getAttribute("data-category-id");
         const imageUrl = row.querySelector("img").src;
 
-        // Extract filename from the image URL
         const filename = imageUrl.substring(imageUrl.lastIndexOf("/") + 1);
 
-        // Populate form fields with table row data
         productNameField.value = name;
         productPriceField.value = price;
         productQtyField.value = quantity;
         categoryIdField.value = categoryId;
         productIdField.value = id;
 
-        // Set the filename in the display field
         fileNameDisplay.value = filename;
       });
     });
 
-    // Update the fileNameDisplay field when a new file is selected
     fileInput.addEventListener("change", event => {
       const file = event.target.files[0];
       if (file) {
         fileNameDisplay.value = file.name;
       } else {
-        fileNameDisplay.value = ""; // Clear if no file is selected
+        fileNameDisplay.value = "";
       }
     });
   });

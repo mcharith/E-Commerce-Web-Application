@@ -16,7 +16,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 @WebServlet(name = "AdminProductServlet", value = "/admin-product")
-@MultipartConfig(maxFileSize = 1024 * 1024 * 5) // 5MB limit for file upload
+@MultipartConfig(maxFileSize = 1024 * 1024 * 5)
 public class AdminProductServlet extends HttpServlet {
     @Resource(name = "java:comp/env/jdbc/pool")
     private DataSource dataSource;
@@ -54,11 +54,11 @@ public class AdminProductServlet extends HttpServlet {
                 ps.setInt(5, categoryId);
 
                 ps.executeUpdate();
-                resp.sendRedirect("admin-product.jsp?message=Product added successfully");
+                resp.sendRedirect("admin-homepage.jsp?message=Product added successfully");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            resp.sendRedirect("admin-product.jsp?error=Failed to add product");
+            resp.sendRedirect("admin-homepage.jsp?error=Failed to add product");
         }
     }
 
@@ -66,7 +66,7 @@ public class AdminProductServlet extends HttpServlet {
         String productId = req.getParameter("productId");
 
         if (productId == null || productId.isEmpty()) {
-            resp.sendRedirect("admin-product.jsp?error=Product ID is required to delete");
+            resp.sendRedirect("admin-homepage.jsp?error=Product ID is required to delete");
             return;
         }
 
@@ -77,14 +77,14 @@ public class AdminProductServlet extends HttpServlet {
                 int rowsAffected = ps.executeUpdate();
 
                 if (rowsAffected > 0) {
-                    resp.sendRedirect("admin-product.jsp?message=Product deleted successfully");
+                    resp.sendRedirect("admin-homepage.jsp?message=Product deleted successfully");
                 } else {
-                    resp.sendRedirect("admin-product.jsp?error=Product not found");
+                    resp.sendRedirect("admin-homepage.jsp?error=Product not found");
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
-            resp.sendRedirect("admin-product.jsp?error=Failed to delete product");
+            resp.sendRedirect("admin-homepage.jsp?error=Failed to delete product");
         }
     }
 
@@ -97,12 +97,11 @@ public class AdminProductServlet extends HttpServlet {
         Part filePart = req.getPart("description");
 
         if (productId == null || productId.isEmpty()) {
-            resp.sendRedirect("admin-product.jsp?error=Product ID is required to update");
+            resp.sendRedirect("admin-homepage.jsp?error=Product ID is required to update");
             return;
         }
 
         try (Connection connection = dataSource.getConnection()) {
-            // SQL query with file part as optional
             String sql = filePart != null && filePart.getSize() > 0
                     ? "UPDATE products SET name = ?, description = ?, price = ?, quantity = ?, category_id = ? WHERE id = ?"
                     : "UPDATE products SET name = ?, price = ?, quantity = ?, category_id = ? WHERE id = ?";
@@ -127,14 +126,14 @@ public class AdminProductServlet extends HttpServlet {
                 int rowsAffected = ps.executeUpdate();
 
                 if (rowsAffected > 0) {
-                    resp.sendRedirect("admin-product.jsp?message=Product updated successfully");
+                    resp.sendRedirect("admin-homepage.jsp?message=Product updated successfully");
                 } else {
-                    resp.sendRedirect("admin-product.jsp?error=Failed to update product");
+                    resp.sendRedirect("admin-homepage.jsp?error=Failed to update product");
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
-            resp.sendRedirect("admin-product.jsp?error=Failed to update product");
+            resp.sendRedirect("admin-homepage.jsp?error=Failed to update product");
         }
     }
 }

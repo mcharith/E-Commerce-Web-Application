@@ -41,10 +41,10 @@ public class AdminAddCategoriesServlet extends HttpServlet {
             ps.setString(1, name);
             ps.setString(2, description);
             ps.executeUpdate();
-            resp.sendRedirect("admin-categories.jsp?message=Category added successfully");
+            resp.sendRedirect("admin-homepage.jsp?message=Category added successfully");
         } catch (SQLException e) {
             e.printStackTrace();
-            resp.sendRedirect("admin-categories.jsp?error=Error adding category");
+            resp.sendRedirect("admin-homepage.jsp?error=Error adding category");
         }
     }
 
@@ -56,10 +56,10 @@ public class AdminAddCategoriesServlet extends HttpServlet {
              PreparedStatement ps = connection.prepareStatement(deleteSql)) {
             ps.setInt(1, categoryId);
             ps.executeUpdate();
-            resp.sendRedirect("admin-categories.jsp?message=Category deleted successfully");
+            resp.sendRedirect("admin-homepage.jsp?message=Category deleted successfully");
         } catch (SQLException e) {
             e.printStackTrace();
-            resp.sendRedirect("admin-categories.jsp?error=Error deleting category");
+            resp.sendRedirect("admin-homepage.jsp?error=Error deleting category");
         }
     }
 
@@ -75,10 +75,10 @@ public class AdminAddCategoriesServlet extends HttpServlet {
             ps.setString(2, description);
             ps.setInt(3, categoryId);
             ps.executeUpdate();
-            resp.sendRedirect("admin-categories.jsp?message=Category updated successfully");
+            resp.sendRedirect("admin-homepage.jsp?message=Category updated successfully");
         } catch (SQLException e) {
             e.printStackTrace();
-            resp.sendRedirect("admin-categories.jsp?error=Error updating category");
+            resp.sendRedirect("admin-homepage.jsp?error=Error updating category");
         }
     }
 }

@@ -23,7 +23,7 @@ public class AdminCustomerDetailsServlet extends HttpServlet {
         String id = req.getParameter("id");
 
         if (action == null || id == null) {
-            resp.sendRedirect("admin-customer-details.jsp");
+            resp.sendRedirect("admin-homepage.jsp");
             return;
         }
 
@@ -39,6 +39,6 @@ public class AdminCustomerDetailsServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        resp.sendRedirect("admin-customer-details.jsp");
+        resp.sendRedirect("admin-homepage.jsp");
     }
 }

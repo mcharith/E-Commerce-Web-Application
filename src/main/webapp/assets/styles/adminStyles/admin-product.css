@@ -1,0 +1,13 @@
+.custom-table th, .custom-table td {
+    vertical-align: middle;
+}
+.cat {
+    color: red;
+}
+.section {
+    margin-top: 50px;
+}
+tr:hover {
+    cursor: pointer;
+    background-color: #f2f2f2;
+}

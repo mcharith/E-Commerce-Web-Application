@@ -6,18 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Categories</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .custom-table th, .custom-table td {
-            vertical-align: middle;
-        }
-        .cat {
-            color: red;
-        }
-        tr:hover {
-            cursor: pointer;
-            background-color: #f2f2f2;
-        }
-    </style>
 </head>
 <body>
 

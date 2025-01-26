@@ -7,7 +7,7 @@
     <title>Liberty - Products</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/styles/user-product.css" rel="stylesheet">
+    <link href="assets/styles/userStyles/user-product.css" rel="stylesheet">
     <style>
         /* Global Background Gradient */
         body {
@@ -188,14 +188,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" href="user-product.jsp">Products</a>
+                    <a class="nav-link active" id="user_product_nav" href="user-product.jsp">Products</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="user-cart.jsp">Cart</a>
+                    <a class="nav-link active" id="user_cart_nav" href="user-cart.jsp">Cart</a>
                 </li>
             </ul>
             <div class="d-flex align-items-center">
-                <a class="btn btn-search" href="user-search.jsp"><i class="bi bi-search"></i></a>
+                <a class="btn btn-search" id="user_search_nav" href="#"><i class="bi bi-search"></i></a>
             </div>
 
             <%-- Check if the user is logged in --%>
