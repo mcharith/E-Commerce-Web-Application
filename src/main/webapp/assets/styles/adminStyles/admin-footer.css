@@ -1,0 +1,24 @@
+.footer {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+    text-align: center;
+    background: linear-gradient(45deg, #343333, #9b9999);
+}
+
+.footer .footer-title {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.footer .footer-links a {
+    color: #d0e8fd;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.footer .footer-links a:hover {
+    color: #ff0018;
+}

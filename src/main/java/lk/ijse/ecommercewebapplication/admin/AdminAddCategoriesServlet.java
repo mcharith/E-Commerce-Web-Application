@@ -75,7 +75,7 @@ public class AdminAddCategoriesServlet extends HttpServlet {
             ps.setString(2, description);
             ps.setInt(3, categoryId);
             ps.executeUpdate();
-            resp.sendRedirect("admin-homepage.jsp?message=Category updated successfully");
+            resp.sendRedirect("admin-category.jsp?section=category&message=Category updated successfully");
         } catch (SQLException e) {
             e.printStackTrace();
             resp.sendRedirect("admin-homepage.jsp?error=Error updating category");

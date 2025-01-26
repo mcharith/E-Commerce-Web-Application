@@ -41,7 +41,6 @@ public class CheckoutServlet extends HttpServlet {
         try (Connection connection = dataSource.getConnection()) {
             connection.setAutoCommit(false);
 
-            // Insert into orders table
             String orderSQL = "INSERT INTO orders (user_id, total_amount, status) VALUES (?, ?, 'pending')";
             PreparedStatement orderStmt = connection.prepareStatement(orderSQL, PreparedStatement.RETURN_GENERATED_KEYS);
             double totalAmount = cart.values().stream()
@@ -58,7 +57,6 @@ public class CheckoutServlet extends HttpServlet {
             }
             int orderId = orderKeys.getInt(1);
 
-            // Insert into order_details table
             String orderDetailsSQL = "INSERT INTO order_details (order_id, product_id, quantity, price) VALUES (?, ?, ?, ?)";
             PreparedStatement orderDetailsStmt = connection.prepareStatement(orderDetailsSQL);
 
@@ -78,10 +76,9 @@ public class CheckoutServlet extends HttpServlet {
 
             connection.commit();
 
-            // Clear the cart
             session.removeAttribute("cart");
 
-            resp.sendRedirect("order-confirmation.jsp?success=Order placed successfully.");
+            resp.sendRedirect("user-cart.jsp?success=Order placed successfully.");
         } catch (SQLException e) {
             throw new ServletException("Order placement failed", e);
         }
