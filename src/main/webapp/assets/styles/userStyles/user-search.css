@@ -1,9 +1,3 @@
-body {
-    background: linear-gradient(45deg, rgb(241, 86, 86), rgba(255, 255, 255, 0.8)), url('https://via.placeholder.com/1920x600?text=Shop+Our+Latest+Products');
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
 .card {
     transition: transform 0.3s ease;
 }
@@ -29,7 +23,6 @@ body {
     color: #fff;
 }
 
-/* Buy Now button styles */
 .btn-buy-now {
     background-color: #000;
     color: #fff;
@@ -41,9 +34,18 @@ body {
     background-color: #de4c4c;
     color: white;
 }
-#red1{
-    color: #d0cece;
+
+.filter-bar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
 }
-#av1{
+
+#search-input {
+    width: 250px;
+}
+
+#available{
     color: white;
 }

@@ -1,0 +1,165 @@
+/* Global Background Gradient */
+body {
+    background: linear-gradient(45deg, #a3a3c2, #150303);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #c9c9c9;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white !important;
+}
+
+#red {
+    color: red;
+}
+
+.nav-link {
+    color: white !important;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: black !important;
+}
+
+.nav-link:hover::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: red;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.btn-search {
+    color: black;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    position: relative;
+}
+
+.btn-search i {
+    margin-left: 5px;
+    font-size: 1.2rem;
+}
+
+.btn-search:hover {
+    color: red;
+}
+
+.btn-search:hover::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+}
+
+/* Banner Section */
+.banner {
+    background-image: url('https://via.placeholder.com/1920x600?text=Shop+Our+Latest+Products');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, rgb(241, 86, 86), rgba(255, 255, 255, 0.8)), url('https://via.placeholder.com/1920x600?text=Shop+Our+Latest+Products');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 30px 0;
+}
+
+.product-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product-description {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.product-price {
+    color: #dc3545;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Footer Section */
+.footer {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+    text-align: center;
+    background: linear-gradient(45deg, #343333, #9b9999);
+}
+
+.footer .footer-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.footer .footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.footer .footer-links a:hover {
+    color: #ff001b;
+}

@@ -33,7 +33,7 @@
         <img src="image?id=<%= id %>" class="card-img-top" alt="<%= name %>">
         <div class="card-body text-center">
           <h5 class="card-title"><%= name %></h5>
-          <p class="card-text">Price: $<%= String.format("%.2f", price) %></p>
+          <p class="card-text">Price: Rs:<%= String.format("%.2f", price) %></p>
           <form action="add-to-cart" method="post">
             <input type="hidden" name="productId" value="<%= id %>">
             <input type="hidden" name="productName" value="<%= name %>">

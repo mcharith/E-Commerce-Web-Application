@@ -78,7 +78,7 @@ public class CheckoutServlet extends HttpServlet {
 
             session.removeAttribute("cart");
 
-            resp.sendRedirect("user-cart.jsp?success=Order placed successfully.");
+            resp.sendRedirect("index.jsp.?success=Order placed successfully.");
         } catch (SQLException e) {
             throw new ServletException("Order placement failed", e);
         }

@@ -1,3 +1,9 @@
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="javax.sql.DataSource" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,173 +14,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/styles/userStyles/user-product.css" rel="stylesheet">
-    <style>
-        /* Global Background Gradient */
-        body {
-            background: linear-gradient(45deg, #a3a3c2, #150303);
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .navbar {
-            background-color: #c9c9c9;
-        }
-
-        .navbar-brand {
-            font-weight: bold;
-            font-size: 1.5rem;
-            color: white !important;
-        }
-
-        #red {
-            color: red;
-        }
-
-        .nav-link {
-            color: white !important;
-            position: relative;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: black !important;
-        }
-
-        .nav-link:hover::after {
-            content: '';
-            display: block;
-            width: 100%;
-            height: 2px;
-            background-color: red;
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-        }
-
-        .btn-search {
-            color: black;
-            background-color: transparent;
-            border: none;
-            display: flex;
-            align-items: center;
-            font-size: 1.1rem;
-            position: relative;
-        }
-
-        .btn-search i {
-            margin-left: 5px;
-            font-size: 1.2rem;
-        }
-
-        .btn-search:hover {
-            color: red;
-        }
-
-        .btn-search:hover::after {
-            content: '';
-            display: block;
-            width: 100%;
-            height: 2px;
-            background-color: white;
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-        }
-
-        /* Banner Section */
-        .banner {
-            background-image: url('https://via.placeholder.com/1920x600?text=Shop+Our+Latest+Products');
-            background-size: cover;
-            background-position: center;
-            height: 400px;
-            color: white;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, rgb(241, 86, 86), rgba(255, 255, 255, 0.8)), url('https://via.placeholder.com/1920x600?text=Shop+Our+Latest+Products');
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Product Grid */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
-            padding: 30px 0;
-        }
-
-        .product-card {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .product-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .product-info {
-            padding: 20px;
-        }
-
-        .product-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .product-description {
-            color: #6c757d;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-
-        .product-price {
-            color: #dc3545;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-
-        /* Footer Section */
-        .footer {
-            background-color: #f8f9fa;
-            padding: 40px 0;
-            text-align: center;
-            background: linear-gradient(45deg, #343333, #9b9999);
-        }
-
-        .footer .footer-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .footer .footer-links a {
-            color: #6c757d;
-            text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.3s;
-        }
-
-        .footer .footer-links a:hover {
-            color: #dc3545;
-        }
-
-    </style>
+    <link href="assets/styles/userStyles/user-homepage.css" rel="stylesheet">
+    <link href="assets/styles/userStyles/user-search.css" rel="stylesheet">
+    <link href="assets/styles/userStyles/user-cart.css" rel="stylesheet">
 </head>
 <body>
 <%--Nav Bar--%>
@@ -219,13 +61,14 @@
     </div>
 </nav>
 
+<div id="customer_home_section">
 <!-- Banner -->
 <div class="banner">
     <div><h1>These are our coming soon Products...<br>
         Log in before Buy your Product.
     </h1></div>
+    <img src="assets/image/111848_apple-watch-series8.png">
 </div>
-
 <!-- Product Grid Section -->
 <div class="container product-grid">
     <div class="product-card">
@@ -233,7 +76,7 @@
         <div class="product-info">
             <div class="product-title">Apple Watch Serious 8</div>
             <div class="product-description">Water resistant, Blood oxygen sensor, Electrical heart sensor, High-g accelerometer, Display: 45mm, 41mm, Always-On Retina LTPO OLED display.</div>
-            <div class="product-price">$49.99</div>
+            <div class="product-price">Rs:184900.00</div>
         </div>
     </div>
     <div class="product-card">
@@ -241,7 +84,7 @@
         <div class="product-info">
             <div class="product-title">Apple Watch Series 10</div>
             <div class="product-description">46mm. Height: 46mm. Width: 39mm. Depth: 9.7mm. 416 by 496 pixels. 1220 sq mm display area. Weight (aluminum, GPS): 36.4 grams.</div>
-            <div class="product-price">$59.99</div>
+            <div class="product-price">Rs:199900.00</div>
         </div>
     </div>
     <div class="product-card">
@@ -249,12 +92,170 @@
         <div class="product-info">
             <div class="product-title">G-Shock</div>
             <div class="product-description">Tough Solar: Casio watches are powered by solar energy, making them more reliable and durable than watches that use batteries.</div>
-            <div class="product-price">$39.99</div>
+            <div class="product-price">Rs:15900.00</div>
         </div>
     </div>
     <!-- Add more products as needed -->
 </div>
+</div>
 
+<%--Product Section--%>
+<div id="customer_product_section" class="container mt-5">
+    <h1 class="text-center mb-4"><b><span id="av1">Available</span> <span id="red1">Products</span></b></h1>
+    <div class="row">
+        <%
+            Connection connection = null;
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce", "root", "1234");
+
+                String sql = "SELECT id, name, price FROM products";
+                ps = connection.prepareStatement(sql);
+                rs = ps.executeQuery();
+
+                while (rs.next()) {
+                    int id = rs.getInt("id");
+                    String name = rs.getString("name");
+                    double price = rs.getDouble("price");
+        %>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <img src="image?id=<%= id %>" class="card-img-top" alt="<%= name %>">
+                <div class="card-body text-center">
+                    <h5 class="card-title"><%= name %></h5>
+                    <p class="card-text">Price: Rs:<%= String.format("%.2f", price) %></p>
+                    <form action="add-to-cart" method="post">
+                        <input type="hidden" name="productId" value="<%= id %>">
+                        <input type="hidden" name="productName" value="<%= name %>">
+                        <input type="hidden" name="productPrice" value="<%= price %>">
+                        <button type="submit" class="btn btn-add-to-cart w-100 mb-2">Add to Cart</button>
+                    </form>
+                    <button class="btn btn-buy-now w-100">Buy Now</button>
+                </div>
+            </div>
+        </div>
+        <%
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+                if (connection != null) connection.close();
+            }
+        %>
+    </div>
+</div>
+
+<%--Cart Section--%>
+<div id="customer_cart_section" class="container my-5">
+    <h2 class="text-center"><span id="checkout">Checkout</span></h2>
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="table-dark">
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%
+                Map<Integer, Map<String, Object>> cart = (Map<Integer, Map<String, Object>>) session.getAttribute("cart");
+                double total = 0.0;
+
+                if (cart != null && !cart.isEmpty()) {
+                    for (Map.Entry<Integer, Map<String, Object>> entry : cart.entrySet()) {
+                        Map<String, Object> productDetails = entry.getValue();
+                        String productName = (String) productDetails.get("name");
+                        double productPrice = (double) productDetails.get("price");
+                        int quantity = (int) productDetails.get("quantity");
+                        double subtotal = productPrice * quantity;
+                        total += subtotal;
+            %>
+            <tr>
+                <td><%= productName %></td>
+                <td>$<%= String.format("%.2f", productPrice) %></td>
+                <td><%= quantity %></td>
+                <td>$<%= String.format("%.2f", subtotal) %></td>
+            </tr>
+            <%
+                }
+            } else {
+            %>
+            <tr>
+                <td colspan="4" class="text-center">Your cart is empty.</td>
+            </tr>
+            <%
+                }
+            %>
+            </tbody>
+            <tfoot>
+            <tr class="table-secondary">
+                <td colspan="3" class="text-end">Total</td>
+                <td>$<%= String.format("%.2f", total) %></td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+    <form action="checkout" method="post">
+        <button type="submit" class="btn btn-success w-100">Place Order</button>
+    </form>
+</div>
+
+<%--Search Section--%>
+<div id="customer_search_section" class="container mt-5">
+    <div class="filter-bar-container">
+        <select id="category-select" class="form-select" style="width: 200px;">
+            <option value="all">All Categories</option>
+        </select>
+
+        <form id="search-form" class="d-flex">
+            <input id="search-input" class="form-control me-2" type="search" placeholder="Search products" aria-label="Search">
+            <button class="btn btn-outline-danger" type="submit">Search</button>
+        </form>
+
+        <select id="sort-select" class="form-select" style="width: 200px;">
+            <option value="none">Sort By</option>
+            <option value="asc">Price: Low to High</option>
+            <option value="desc">Price: High to Low</option>
+        </select>
+    </div>
+
+    <h2 class="text-center mb-4"><span id="available">Available Products</span></h2>
+    <div class="row" id="product-list">
+        <%
+            try (Connection connection1 = ((DataSource) getServletContext().getAttribute("jdbc/pool")).getConnection()) {
+                String query = "SELECT id, name, price FROM products";
+                try (PreparedStatement pst = connection1.prepareStatement(query);
+                     ResultSet rst = pst.executeQuery()) {
+                    while (rst.next()) {
+                        int id = rst.getInt("id");
+                        String name = rst.getString("name");
+                        double price = rst.getDouble("price");
+        %>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <img src="image?id=<%= id %>" class="card-img-top" alt="<%= name %>">
+                <div class="card-body">
+                    <h5 class="card-title"><%= name %></h5>
+                    <p class="card-text">Price: Rs:<%= price %></p>
+                    <button class="btn btn-primary w-100">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <%
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        %>
+    </div>
+</div>
 
 <!-- Footer Section -->
 <div class="footer">
@@ -267,5 +268,8 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="js/user/user-search.js"></script>
+<script src="js/user/user-dashboard.js"></script>
 </body>
 </html>

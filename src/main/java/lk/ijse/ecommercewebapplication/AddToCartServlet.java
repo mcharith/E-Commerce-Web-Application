@@ -58,6 +58,6 @@ public class AddToCartServlet extends HttpServlet {
 
         session.setAttribute("cart", cart);
 
-        resp.sendRedirect("user-product.jsp?success=Product added to cart successfully.");
+        resp.sendRedirect("index.jsp?success=Product added to cart successfully.");
     }
 }

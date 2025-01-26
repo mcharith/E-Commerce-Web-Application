@@ -21,26 +21,26 @@
     }
 
     .btn-add-to-cart {
-      background-color: #b0b0b0; /* Ash color */
+      background-color: #b0b0b0;
       color: #000;
       border: none;
       transition: all 0.3s ease;
     }
 
     .btn-add-to-cart:hover {
-      background-color: #000; /* Black color */
+      background-color: #000;
       color: #fff;
     }
 
     .btn-buy-now {
-      background-color: #000; /* Black color */
+      background-color: #000;
       color: #fff;
       border: none;
       transition: all 0.3s ease;
     }
 
     .btn-buy-now:hover {
-      background-color: #de4c4c; /* Ash color */
+      background-color: #de4c4c;
       color: white;
     }
 
