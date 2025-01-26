@@ -18,4 +18,4 @@ This application is designed to provide a seamless user experience by combining 
 ![image alt](https://github.com/mcharith/E-Commerce-Web-Application/blob/d9547727337601f2ea45bd231d8bc6c46d0c54cf/admin-customer-details.png)
 
 *Admin View all orders placed by customers.
-![image alt]()
+![image alt](https://github.com/mcharith/E-Commerce-Web-Application/blob/049d64480146ce39e9f2fbd41708c296f231be31/admin-order-management.png)
