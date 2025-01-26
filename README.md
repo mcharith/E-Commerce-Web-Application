@@ -32,7 +32,7 @@ This application is designed to provide a seamless user experience by combining 
 ![image alt](https://github.com/mcharith/E-Commerce-Web-Application/blob/8c792bc940801030cff279b571be7003da5a3eca/customer-product.png)
 
 ⭕️ Customer Cart Page
-![image alt]()
+![image alt](https://github.com/mcharith/E-Commerce-Web-Application/blob/b6a0f61acd6ba911d0edb5892161bb7bc1ec6a4d/customer-cart.png)
 
 ⭕️ Customer Product Search Page
 ![image alt]()
