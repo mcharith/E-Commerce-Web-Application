@@ -15,7 +15,7 @@ This application is designed to provide a seamless user experience by combining 
 ![image alt](https://github.com/mcharith/E-Commerce-Web-Application/blob/83c577c962809268195b9560df51f0fca8c63eda/admin-product-list.png)
 
 *Admin View, activate, or deactivate customer accounts Page.
-![image alt]()
+![image alt](https://github.com/mcharith/E-Commerce-Web-Application/blob/d9547727337601f2ea45bd231d8bc6c46d0c54cf/admin-customer-details.png)
 
 *Admin View all orders placed by customers.
 ![image alt]()
